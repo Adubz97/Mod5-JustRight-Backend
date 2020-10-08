@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  years_of_experience: 1
+  caregiver_id: 1
+  job_id: 1
+
+two:
+  id: 1
+  years_of_experience: 1
+  caregiver_id: 1
+  job_id: 1
