@@ -1,7 +1,9 @@
 class JobPost < ApplicationRecord
 
 has_many :offers
-belongs_to :client, class_name: :"User"
+has_many :appointments
+belongs_to :user
 belongs_to :job
+
 
 end
