@@ -7,7 +7,6 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 User.destroy_all
 Offer.destroy_all
 Job.destroy_all
@@ -15,17 +14,8 @@ JobPost.destroy_all
 Experience.destroy_all
 Appointment.destroy_all
 
-
-
-
-
 user_caregiver = User.all.find_all {|user| user.client == false }
 user_client = User.all.find_all {|user| user.client == true }
-
-
-
-
-
 
 User.create([
 {
@@ -134,19 +124,22 @@ JobPost.create([
 Offer.create([
   {
     caregiver_id: user_caregiver.sample.id,
-    job_post_id: JobPost.all.sample.id
+    job_post_id: JobPost.all.sample.id,
+    description: "whatever, I am lazy"
   },
   {
     caregiver_id: user_caregiver.sample.id,
-    job_post_id: JobPost.all.sample.id
+    job_post_id: JobPost.all.sample.id,
+    description: "okay"
   },
   {
     caregiver_id: user_caregiver.sample.id,
-    job_post_id: JobPost.all.sample.id
+    job_post_id: JobPost.all.sample.id,
+    description: "I am interested"
   },
 
 ])
-#byebug
+
 Experience.create([
   {
     caregiver_id: user_caregiver.sample.id,

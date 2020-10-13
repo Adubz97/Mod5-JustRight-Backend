@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_025019) do
   create_table "offers", force: :cascade do |t|
     t.integer "caregiver_id"
     t.integer "job_post_id"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
