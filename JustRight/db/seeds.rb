@@ -9,13 +9,14 @@ require 'faker'
 
 User.destroy_all
 Offer.destroy_all
-Job.destroy_all
+# Job.destroy_all
 JobPost.destroy_all
-Experience.destroy_all
+# Experience.destroy_all
 Appointment.destroy_all
 
-user_caregiver = User.all.find_all {|user| user.client == false }
-user_client = User.all.find_all {|user| user.client == true }
+# user_caregiver = User.all.find_all {|user| user.client == false }
+
+# user_client = User.all.find_all {|user| user.client == true }
 
 User.create([
 {
@@ -29,7 +30,10 @@ User.create([
             age: "23",
             email: "Abdullah.A.Albasha@gmail.com",
             image: "",
-            client: true
+            client: true,
+            tutor: false,
+            babysitter: false,
+            years_of_experience: 1
 },
 {
             first_name: "Penn",
@@ -42,7 +46,10 @@ User.create([
             age: "22",
             email: "Penn@gmail.com",
             image: "",
-            client: false
+            client: false,
+            tutor: false,
+            babysitter: true,
+            years_of_experience: 5
 },
 {
             first_name: "Kristian",
@@ -55,7 +62,10 @@ User.create([
             age: "20",
             email: "Portillok@gmail.com",
             image: "",
-            client: false
+            client: false,
+            tutor: true,
+            babysitter: false,
+            years_of_experience: 8
 },
 {
             first_name: "Steven",
@@ -68,7 +78,10 @@ User.create([
             age: "25",
             email: "StevenLee@gmail.com",
             image: "",
-            client: false
+            client: false,
+            tutor: true,
+            babysitter: true,
+            years_of_experience: 12
 },
 
 ])
@@ -76,92 +89,101 @@ User.create([
 user_caregiver = User.all.find_all {|user| user.client == false }
 user_client = User.all.find_all {|user| user.client == true }
 
-Job.create([
-  {
-    subject: "Math"
-  },
-  {
-    subject: "Chemistry"
-  },
-  {
-    subject: "Biology"
-  },
-  {
-    subject: "History"
-  },
-  {
-    subject: "English"
-  },
-  {
-    subject: "physics"
-  },
-  {
-    subject: "Grammer & Writing"
-  },
-  {
-    subject: "Spanish"
-  }
+# Job.create([
+#   {
+#     type: "Math"
+#   },
+#   {
+#     type: "Chemistry"
+#   },
+#   {
+#     type: "Biology"
+#   },
+#   {
+#     type: "History"
+#   },
+#   {
+#     type: "English"
+#   },
+#   {
+#     type: "physics"
+#   },
+#   {
+#     type: "Grammer & Writing"
+#   },
+#   {
+#     type: "Spanish"
+#   },
+#   {
+#     type: "babysitter"
+#   }
 
-])
+# ])
 
-JobPost.create([
-  {
-    user_id: User.all.sample.id,
-    job_id: Job.all.sample.id,
+jobs_type = ["Math", "Chemistry", "Biology", "History", "English","physics", "Grammer & Writing", "Spanish", "babysitter"]
+# byebug
+
+JobPost.create(
+
+    client_id: user_client.sample.id,
+    job_type: jobs_type.sample,
     title: "Looking for a Math tutor !",
     description: "I am looking for a math tutor to help my kid ,with algebra, he is struggling and has an upcoming exam.",
     payrate: "$17/hr"
-  },
-  {
-    user_id: User.all.sample.id,
-    job_id: Job.all.sample.id,
+)
+
+JobPost.create(
+    client_id: user_client.sample.id,
+    job_type: jobs_type.sample,
     title: "Need a babySitter for tonight !",
     description: "whatever, I am lazy",
     payrate: "$20/hr"
-  }
-])
+)
 # byebug
 Offer.create([
   {
     caregiver_id: user_caregiver.sample.id,
     job_post_id: JobPost.all.sample.id,
-    description: "whatever, I am lazy"
+    description: "whatever, I am lazy",
+    payrate: "$20"
   },
   {
     caregiver_id: user_caregiver.sample.id,
     job_post_id: JobPost.all.sample.id,
-    description: "okay"
+    description: "okay",
+    payrate: "$20"
   },
   {
     caregiver_id: user_caregiver.sample.id,
     job_post_id: JobPost.all.sample.id,
-    description: "I am interested"
+    description: "I am interested",
+    payrate: "$20"
   },
 
 ])
 
-Experience.create([
-  {
-    caregiver_id: user_caregiver.sample.id,
-    job_id: Job.all.sample.id,
-    years_of_experience: 2
-  },
-  {
-    caregiver_id: user_caregiver.sample.id,
-    job_id: Job.all.sample.id,
-    years_of_experience: 3
-  },
-  {
-    caregiver_id: user_caregiver.sample.id,
-    job_id: Job.all.sample.id,
-    years_of_experience: 4
-  },
-  {
-    caregiver_id: user_caregiver.sample.id,
-    job_id: Job.all.sample.id,
-    years_of_experience: 5
-  }
-])
+# Experience.create([
+#   {
+#     caregiver_id: user_caregiver.sample.id,
+#     job_id: Job.all.sample.id,
+#     years_of_experience: 2
+#   },
+#   {
+#     caregiver_id: user_caregiver.sample.id,
+#     job_id: Job.all.sample.id,
+#     years_of_experience: 3
+#   },
+#   {
+#     caregiver_id: user_caregiver.sample.id,
+#     job_id: Job.all.sample.id,
+#     years_of_experience: 4
+#   },
+#   {
+#     caregiver_id: user_caregiver.sample.id,
+#     job_id: Job.all.sample.id,
+#     years_of_experience: 5
+#   }
+# ])
 
 Appointment.create([
 
@@ -170,35 +192,35 @@ Appointment.create([
     offer_id: Offer.all.sample.id,
     start_time: "2:00 pm",
     end_time: "3:00 pm",
-    location: "somwhere"
+    location: "somewhere"
   },
   {
     job_post_id: JobPost.all.sample.id,
     offer_id: Offer.all.sample.id,
     start_time: "2:00 pm",
     end_time: "3:00 pm",
-    location: "somwhere"
+    location: "somewhere"
   },
   {
     job_post_id: JobPost.all.sample.id,
     offer_id: Offer.all.sample.id,
     start_time: "2:00 pm",
     end_time: "3:00 pm",
-    location: "somwhere"
+    location: "somewhere"
   },
   {
     job_post_id: JobPost.all.sample.id,
     offer_id: Offer.all.sample.id,
     start_time: "2:00 pm",
     end_time: "3:00 pm",
-    location: "somwhere"
+    location: "somewhere"
   },
   {
     job_post_id: JobPost.all.sample.id,
     offer_id: Offer.all.sample.id,
     start_time: "2:00 pm",
     end_time: "3:00 pm",
-    location: "somwhere"
+    location: "somewhere"
   }
 ])
 

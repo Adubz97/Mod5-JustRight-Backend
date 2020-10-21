@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_10_08_025019) do
   end
 
   create_table "job_posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "job_id"
+    t.integer "client_id"
+    t.string "job_type"
     t.string "title"
     t.string "description"
     t.string "payrate"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_025019) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string "subject"
+    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_025019) do
     t.integer "caregiver_id"
     t.integer "job_post_id"
     t.string "description"
+    t.string "payrate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,6 +70,9 @@ ActiveRecord::Schema.define(version: 2020_10_08_025019) do
     t.string "email"
     t.string "image"
     t.boolean "client"
+    t.boolean "tutor"
+    t.boolean "babysitter"
+    t.integer "years_of_experience"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

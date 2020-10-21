@@ -12,6 +12,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :image
       t.boolean :client
+      t.boolean :tutor
+      t.boolean :babysitter
+      t.integer :years_of_experience
 
       t.timestamps
     end

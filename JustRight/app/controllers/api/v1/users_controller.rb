@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
 
-  # skip_before_action :logged_in?, only: [:create, :login]
+  skip_before_action :logged_in?, only: [:create, :login]
 
 def index
     users = User.all
@@ -29,6 +29,22 @@ def update
     render json: user, except: [:updated_at, :created_at, :password_digest], status: :ok
 end
 
+# byebug
+def clients
+  client = User.clients
+  render json: client, except: [:updated_at, :created_at, :password_digest], status: :ok
+end
+
+def tutors
+  tutor = User.tutors
+  render json: tutor, except: [:updated_at, :created_at, :password_digest], status: :ok
+end
+
+def babysitters
+  babysitter = User.babysitters
+  render json: babysitter, except: [:updated_at, :created_at, :password_digest], status: :ok
+end
+
 #POST /users/login
   def login
 
@@ -38,7 +54,7 @@ end
 
         time = Time.now + 24.hours.to_i
 
-        render json: {username: user.username, token: encode_token({user_id: user.id}), exp: time.strftime("%m=%d-%Y %H:%M")},except: [:exp], status: 200
+        render json: {user: user, token: encode_token({user_id: user.id}), exp: time.strftime("%m=%d-%Y %H:%M")},except: [:exp], status: 200
       else
         render json: {error: "Invalid username or password"}, status: :unauthorized
       end

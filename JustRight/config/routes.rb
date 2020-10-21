@@ -5,16 +5,21 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       resources :users
-      resources :offers
-      resources :jobs
-      resources :job_posts
-      resources :experiences
-      resources :appointments
 
 
-      post '/users/signup', to: 'users#create'
-      post '/users/login', to: 'users#login'
+        resources :offers
+        resources :jobs
+        resources :job_posts
+        resources :experiences
+        resources :appointments
 
+
+        post '/users/signup', to: 'users#create'
+        post '/users/login', to: 'users#login'
+
+      get '/clients', to: 'users#clients'
+      get '/tutors', to: 'users#tutors'
+      get '/babysitters', to: 'users#babysitters'
 
     end
   end
