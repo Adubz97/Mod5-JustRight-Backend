@@ -14,7 +14,7 @@ class Api::V1::JobPostsController < ApplicationController
 
   def create
     jobpost = JobPost.new(client_id: params[:client_id], job_type: params[:job_type], title: params[:title], description: params[:description], payrate: params[:payrate])
-    
+
     if jobpost.valid?
       jobpost.save
       render json: {jobpost: jobpost}, status: :created
@@ -26,7 +26,7 @@ class Api::V1::JobPostsController < ApplicationController
 
   def update
     jobpost = JobPost.find_by(id: params[:id])
-    jobpost.update(jobpost_params)
+    jobpost.update(client_id: params[:client_id], job_type: params[:job_type], title: params[:title], description: params[:description], payrate: params[:payrate])
     render json: jobpost, except: [:updated_at, :created_at], status: :ok
   end
 

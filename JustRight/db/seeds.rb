@@ -29,7 +29,7 @@ User.create([
             gender: "Male",
             age: "23",
             email: "Abdullah.A.Albasha@gmail.com",
-            image: "",
+            image: "../../assets/Profile Picture.png",
             client: true,
             tutor: false,
             babysitter: false,
@@ -45,27 +45,11 @@ User.create([
             gender: "Male",
             age: "22",
             email: "Penn@gmail.com",
-            image: "",
+            image: "../../assets/Penn.jpeg",
             client: false,
             tutor: false,
             babysitter: true,
             years_of_experience: 5
-},
-{
-            first_name: "Kristian",
-            last_name: "Portillo",
-            username: "Kristian1",
-            password: "Kristian",
-            address: "Bethesda, MD",
-            phone: "3015858585",
-            gender: "Male",
-            age: "20",
-            email: "Portillok@gmail.com",
-            image: "",
-            client: false,
-            tutor: true,
-            babysitter: false,
-            years_of_experience: 8
 },
 {
             first_name: "Steven",
@@ -77,12 +61,124 @@ User.create([
             gender: "Male",
             age: "25",
             email: "StevenLee@gmail.com",
-            image: "",
+            image: "../../assets/Steven.png",
             client: false,
             tutor: true,
             babysitter: true,
             years_of_experience: 12
 },
+{
+            first_name: "Christina",
+            last_name: "Sohn",
+            username: "Christina1",
+            password: "Sohn",
+            address: "Virginia",
+            phone: "3015255252",
+            gender: "female",
+            age: "30",
+            email: "chsohn@gmail.com",
+            image: "../../assets/Christina.png",
+            client: false,
+            tutor: true,
+            babysitter: true,
+            years_of_experience: 8
+},
+{
+            first_name: "Catrina",
+            last_name: "Friday",
+            username: "Catrina",
+            password: "Friday123",
+            address: "DC",
+            phone: "3015255252",
+            gender: "female",
+            age: "34",
+            email: "FridayCatrina@gmail.com",
+            image: "../../assets/Catrina.png",
+            client: false,
+            tutor: false,
+            babysitter: true,
+            years_of_experience: 12
+},
+{
+            first_name: "Sanam",
+            last_name: "Malik",
+            username: "Sanam1",
+            password: "Malik",
+            address: "Virginia",
+            phone: "3015255252",
+            gender: "Male",
+            age: "27",
+            email: "SanamMalik@gmail.com",
+            image: "../../assets/Sanam.png",
+            client: false,
+            tutor: true,
+            babysitter: true,
+            years_of_experience: 5
+},
+{
+            first_name: "Solomon",
+            last_name: "Yismaw",
+            username: "solomn1",
+            password: "Yismaw",
+            address: "Virginia",
+            phone: "3015255252",
+            gender: "Male",
+            age: "34",
+            email: "SolomonYismaw@gmail.com",
+            image: "../../assets/Solomon.png",
+            client: false,
+            tutor: false,
+            babysitter: true,
+            years_of_experience: 3
+},
+{
+            first_name: "Roan",
+            last_name: "Bascoe",
+            username: "Roan1",
+            password: "Bascoe",
+            address: "Washington, DC",
+            phone: "3015255252",
+            gender: "Male",
+            age: "29",
+            email: "RoanBascoe@gmail.com",
+            image: "../../assets/Roan.png",
+            client: false,
+            tutor: true,
+            babysitter: false,
+            years_of_experience: 4
+},
+{
+            first_name: "Kosi",
+            last_name: "Akporgi",
+            username: "Kosi1",
+            password: "Akporgi",
+            address: "Washington, DC",
+            phone: "3015255252",
+            gender: "Male",
+            age: "29",
+            email: "KosiAkporgi@gmail.com",
+            image: "../../assets/kosi.png",
+            client: false,
+            tutor: true,
+            babysitter: true,
+            years_of_experience: 4
+},
+{
+            first_name: "Claudia",
+            last_name: "Borghini",
+            username: "Claudia1",
+            password: "Borghini",
+            address: "Washington, DC",
+            phone: "3015255252",
+            gender: "Male",
+            age: "29",
+            email: "ClaudiaBorghini@gmail.com",
+            image: "../../assets/Claudia.png",
+            client: false,
+            tutor: true,
+            babysitter: true,
+            years_of_experience: 6
+}
 
 ])
 
@@ -127,7 +223,7 @@ JobPost.create(
 
     client_id: user_client.sample.id,
     job_type: jobs_type.sample,
-    title: "Looking for a Math tutor !",
+    title: "Need a Math tutor !",
     description: "I am looking for a math tutor to help my kid ,with algebra, he is struggling and has an upcoming exam.",
     payrate: "$17/hr"
 )
@@ -136,7 +232,7 @@ JobPost.create(
     client_id: user_client.sample.id,
     job_type: jobs_type.sample,
     title: "Need a babySitter for tonight !",
-    description: "whatever, I am lazy",
+    description: "I would like a babysitter that is willing to take care of my child for 6 hours Thursday night ",
     payrate: "$20/hr"
 )
 # byebug
@@ -144,19 +240,19 @@ Offer.create([
   {
     caregiver_id: user_caregiver.sample.id,
     job_post_id: JobPost.all.sample.id,
-    description: "whatever, I am lazy",
+    description: "I am more than happy to help ",
     payrate: "$20"
   },
   {
     caregiver_id: user_caregiver.sample.id,
     job_post_id: JobPost.all.sample.id,
-    description: "okay",
+    description: "I can do that ",
     payrate: "$20"
   },
   {
     caregiver_id: user_caregiver.sample.id,
     job_post_id: JobPost.all.sample.id,
-    description: "I am interested",
+    description: "I am interested !",
     payrate: "$20"
   },
 
@@ -186,35 +282,6 @@ Offer.create([
 # ])
 
 Appointment.create([
-
-  {
-    job_post_id: JobPost.all.sample.id,
-    offer_id: Offer.all.sample.id,
-    start_time: "2:00 pm",
-    end_time: "3:00 pm",
-    location: "somewhere"
-  },
-  {
-    job_post_id: JobPost.all.sample.id,
-    offer_id: Offer.all.sample.id,
-    start_time: "2:00 pm",
-    end_time: "3:00 pm",
-    location: "somewhere"
-  },
-  {
-    job_post_id: JobPost.all.sample.id,
-    offer_id: Offer.all.sample.id,
-    start_time: "2:00 pm",
-    end_time: "3:00 pm",
-    location: "somewhere"
-  },
-  {
-    job_post_id: JobPost.all.sample.id,
-    offer_id: Offer.all.sample.id,
-    start_time: "2:00 pm",
-    end_time: "3:00 pm",
-    location: "somewhere"
-  },
   {
     job_post_id: JobPost.all.sample.id,
     offer_id: Offer.all.sample.id,
