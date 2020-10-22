@@ -12,7 +12,6 @@ class Api::V1::AppointmentsController < ApplicationController
 
   def create
     appointment = Appointment.new(job_post_id: params[:job_post_id], offer_id: params[:offer_id], start_time: params[:start_time],end_time: params[:end_time], location: params[:location])
-
     if appointment.valid?
       appointment.save
       render json: appointment, status: :created
