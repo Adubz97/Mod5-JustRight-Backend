@@ -32,5 +32,5 @@ An app that connects parents to top quality childcare services such as tutoring 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/Adubz97/game-project-back-end/issues. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-## License 
+## 📝 License 
 The code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
